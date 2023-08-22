@@ -107,5 +107,8 @@ npm start
 ```bash
 npm start
 ```
-    
+## Demo 
+
+https://github.com/ahmedg99/paginator-app/assets/80821066/6363b596-8958-49ec-8511-420a0a2963c2
+
 
