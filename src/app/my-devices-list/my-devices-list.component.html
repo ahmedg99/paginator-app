@@ -1,0 +1,40 @@
+<div class="container">
+  <!-- device-list.component.html -->
+  <ng-container *ngIf="devices.length != 0; else noDevices">
+    <div class="p-4">
+      <h1 class="text-2xl  mb-4">List of Devices</h1>
+      <ul>
+        <li *ngFor="let device of devices" class="bg-white shadow-md rounded-lg p-4 mb-4">
+          <div class="flex items-center">
+            <div class="mr-4">
+              <i class="fas fa-mobile-alt text-blue-500 text-2xl"></i>
+            </div>
+            <div>
+              <h2 class="text-lg ">{{ device.model }}</h2>
+              <p class="text-gray-600">{{ device.latitude }}, {{ device.longitude }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <app-my-paginator [currentPageIndex]="currentPageIndex" [pageSize]="pageSize" [pages]="pages"
+      (selectedItemChange)="onSelectedItemChange($event)"
+      (changeCurrentIndex)="setCurrentPage($event)"></app-my-paginator>
+  </ng-container>
+</div>
+
+
+
+
+
+<ng-template #noDevices>
+  <div class="mx-auto mt-8 text-center text-gray-500">
+    <p class="mb-4 text-xl ">No devices are matching.</p>
+    <div class="text-center">
+      <img src="../../../../../assets/images/NOTFOUND.png" alt="" class="mx-auto" />
+    </div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <a href="/client/devices"> add device</a>
+    </button>
+  </div>
+</ng-template>
